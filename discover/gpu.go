@@ -82,7 +82,7 @@ var (
 var RocmComputeMajorMin = "9"
 
 // TODO find a better way to detect iGPU instead of minimum memory
-const IGPUMemLimit = 1 * format.GibiByte // 512G is what they typically report, so anything less than 1G must be iGPU
+const IGPUMemLimit = 457 * format.MebiByte // 512G is what they typically report, so anything less than 1G must be iGPU
 
 // Note: gpuMutex must already be held
 func initCudaHandles() *cudaHandles {

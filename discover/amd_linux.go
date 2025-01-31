@@ -10,7 +10,6 @@ import (
 	"os"
 	"path/filepath"
 	"regexp"
-	"slices"
 	"sort"
 	"strconv"
 	"strings"
@@ -373,7 +372,8 @@ func AMDGetGPUInfo() ([]RocmGPUInfo, error) {
 				slog.Debug("rocm supported GPUs", "types", supported)
 			}
 			gfx := gpuInfo.Compute
-			if !slices.Contains[[]string, string](supported, gfx) {
+			//if !slices.Contains[[]string, string](supported, gfx) {
+			if false {
 				reason := fmt.Sprintf("amdgpu is not supported (supported types:%s)", supported)
 				slog.Warn(reason, "gpu_type", gfx, "gpu", gpuInfo.ID, "library", libDir)
 				unsupportedGPUs = append(unsupportedGPUs, UnsupportedGPUInfo{
